@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FetchApiService } from 'src/app/services/fetch-api.service';
 
 @Component({
@@ -14,7 +15,7 @@ import { FetchApiService } from 'src/app/services/fetch-api.service';
 })
 export class SignUpComponent implements OnInit {
   signUpForm!: FormGroup;
-  constructor(private postApi: FetchApiService) {}
+  constructor(private postApi: FetchApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
@@ -37,7 +38,8 @@ export class SignUpComponent implements OnInit {
       },
     };
     this.postApi.signUp(param).subscribe((res) => {
-      alert('user has been created');
+      alert(`Hello ${this.signUpForm.get('username')?.value}`);
+      this.router.navigate(['/signin']);
     });
     // this.signUpForm.get('username')?.value;
   }

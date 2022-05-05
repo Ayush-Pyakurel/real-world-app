@@ -1,4 +1,5 @@
 <h3>Sign Up</h3>
+<a [routerLink]="['/signin']">Already have an account.</a>
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
   <label for="username">Username: </label>
   <input formControlName="username" type="text" id="username" />

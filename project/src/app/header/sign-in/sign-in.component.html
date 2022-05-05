@@ -1,6 +1,7 @@
+<a [routerLink]="['/signup']">Need an account?</a>
 <form (ngSubmit)="onSubmit()" [formGroup]="signInForm">
-  <label for="username">Username: </label>
-  <input type="text" id="username" formControlName="username" />
+  <label for="email">Email: </label>
+  <input type="text" id="email" formControlName="email" />
   <label for="password">Password: </label>
   <input type="password" id="password" formControlName="password" />
   <button class="btn btn-submit">Submit</button>

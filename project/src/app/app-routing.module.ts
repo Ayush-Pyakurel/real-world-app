@@ -9,7 +9,7 @@ import { UserComponent } from './user/user.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'header', component: HeaderComponent },
+  // { path: 'header', component: HeaderComponent },
   { path: 'user', component: UserComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'signin', component: SignInComponent },

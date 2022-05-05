@@ -18,7 +18,11 @@ export class FetchApiService {
   }
 
   signIn(param: any) {
-    let url = `${environment.url}/uesrs/login`;
-    return this.http.post(url, param);
+    let url = `${environment.url}/users/login`;
+    return this.http.post(url, param, {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+      }),
+    });
   }
 }
