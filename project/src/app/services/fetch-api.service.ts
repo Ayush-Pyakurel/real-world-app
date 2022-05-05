@@ -16,4 +16,9 @@ export class FetchApiService {
       }),
     });
   }
+
+  signIn(param: any) {
+    let url = `${environment.url}/uesrs/login`;
+    return this.http.post(url, param);
+  }
 }

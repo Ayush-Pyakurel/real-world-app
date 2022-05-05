@@ -10,6 +10,7 @@ import { UserComponent } from './user/user.component';
 import { YourFeedComponent } from './home/your-feed/your-feed.component';
 import { SignUpComponent } from './header/sign-up/sign-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignInComponent } from './header/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserComponent,
     YourFeedComponent,
     SignUpComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
