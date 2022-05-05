@@ -11,6 +11,7 @@ import { YourFeedComponent } from './home/your-feed/your-feed.component';
 import { SignUpComponent } from './header/sign-up/sign-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './header/sign-in/sign-in.component';
+import { GlobalFeedComponent } from './home/global-feed/global-feed.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SignInComponent } from './header/sign-in/sign-in.component';
     YourFeedComponent,
     SignUpComponent,
     SignInComponent,
+    GlobalFeedComponent,
   ],
   imports: [
     BrowserModule,
