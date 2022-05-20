@@ -19,10 +19,20 @@ export class FetchApiService {
 
   signIn(param: any) {
     let url = `${environment.url}/users/login`;
-    return this.http.post(url, param, {
+    return this.http.post<IsignInresponse>(url, param, {
       headers: new HttpHeaders({
         'content-type': 'application/json',
       }),
     });
+  }
+}
+interface IsignInresponse{
+  user:{
+    bio:string|null,
+    email:string,
+    image:string,
+    token:string,
+    username:string
+
   }
 }

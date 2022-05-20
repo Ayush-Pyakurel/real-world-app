@@ -12,6 +12,7 @@ import { SignUpComponent } from './header/sign-up/sign-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './header/sign-in/sign-in.component';
 import { GlobalFeedComponent } from './home/global-feed/global-feed.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { GlobalFeedComponent } from './home/global-feed/global-feed.component';
     SignUpComponent,
     SignInComponent,
     GlobalFeedComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { FetchApiService } from 'src/app/services/fetch-api.service';
 
 @Component({
@@ -32,7 +33,11 @@ export class SignInComponent implements OnInit {
         password: this.signInForm.get('password')?.value,
       },
     };
-    this.postSignIn.signIn(param).subscribe((res) => {
+    // this.postSignIn.signIn(param).pipe(tap(vare=>console.log(vare))).subscribe((res) => {
+      this.postSignIn.signIn(param).subscribe((res) => {
+
+      console.log(res.user.token)
+      localStorage.setItem ('token', res.user.token);
       this.router.navigate(['/user']);
     });
   }
