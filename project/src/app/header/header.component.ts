@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from '../services/auth-service.service';
 import { FetchApiService } from '../services/fetch-api.service';
 
 @Component({
@@ -7,9 +8,9 @@ import { FetchApiService } from '../services/fetch-api.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  fetchedHeaderData!: any;
+  logedInUser: boolean = false;
 
-  constructor(private apiServie: FetchApiService) {}
+  constructor(private authService: AuthServiceService) {}
 
   ngOnInit(): void {}
 
@@ -19,4 +20,11 @@ export class HeaderComponent implements OnInit {
   //     console.log(this.fetchedHeaderData);
   //   });
   // }
+  isLogedInUser() {
+    return this.authService.loggedInUser();
+  }
+
+  userLogout() {
+    this.authService.logoutUser();
+  }
 }

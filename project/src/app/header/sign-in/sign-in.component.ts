@@ -26,19 +26,20 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.signInForm.value);
+    //console.log(this.signInForm.value);
     let param = {
       user: {
         email: this.signInForm.get('email')?.value,
         password: this.signInForm.get('password')?.value,
       },
     };
-    // this.postSignIn.signIn(param).pipe(tap(vare=>console.log(vare))).subscribe((res) => {
-      this.postSignIn.signIn(param).subscribe((res) => {
 
-      console.log(res.user.token)
-      localStorage.setItem ('token', res.user.token);
-      this.router.navigate(['/user']);
+    // this.postSignIn.signIn(param).pipe(tap(vare=>console.log(vare))).subscribe((res) => {
+    this.postSignIn.signIn(param).subscribe((res) => {
+      //console.log(res.token);
+      localStorage.setItem('token', res.user.token);
+
+      this.router.navigate(['/home']);
     });
   }
 }

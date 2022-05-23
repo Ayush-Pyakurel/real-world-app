@@ -1,0 +1,11 @@
+<!-- {{ articlesData | json }} -->
+
+<p *ngFor="let article of articlesData">
+  {{ article.title }}<br />
+  {{ article.description }}<br />
+  {{ article.slug }}<br />
+  {{ article.createdAt }}<br />
+  {{ article.updatedAt }}<br />
+  {{ article.favoritesCount }}<br />
+  {{ article.author.username }}
+</p>

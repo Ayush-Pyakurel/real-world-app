@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  EmailValidator,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FetchApiService } from 'src/app/services/fetch-api.service';
 
@@ -39,7 +34,9 @@ export class SignUpComponent implements OnInit {
     };
     this.postApi.signUp(param).subscribe((res) => {
       alert(`Hello ${this.signUpForm.get('username')?.value}`);
+
       this.router.navigate(['/signin']);
+      // console.log(res);
     });
     // this.signUpForm.get('username')?.value;
   }

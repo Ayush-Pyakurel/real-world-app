@@ -9,12 +9,39 @@
     class="navbar-brand my-2 my-sm-0"
     [routerLink]="['/signup']"
     routerLinkActive="active-link"
+    *ngIf="!isLogedInUser()"
     >Sign Up</a
   >
   <a
     class="navbar-brand my-2 my-sm-0"
     [routerLink]="['/signin']"
     routerLinkActive="active-link"
+    *ngIf="!isLogedInUser()"
     >Sign In</a
+  >
+
+  <a
+    class="navbar-brand my-2 my-sm-0"
+    [routerLink]="['/article']"
+    routerLinkActive="active-link"
+    *ngIf="isLogedInUser()"
+    >New Article</a
+  >
+
+  <a
+    class="navbar-brand my-2 my-sm-0"
+    [routerLink]="['/setting']"
+    routerLinkActive="active-link"
+    *ngIf="isLogedInUser()"
+    >Settings</a
+  >
+
+  <a
+    class="navbar-brand my-2 my-sm-0"
+    [routerLink]="['/signin']"
+    routerLinkActive="active-link"
+    *ngIf="isLogedInUser()"
+    (click)="userLogout()"
+    >Logout</a
   >
 </nav>
