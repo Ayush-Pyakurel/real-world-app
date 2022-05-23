@@ -1,10 +1,19 @@
-nav.navbar{
- position: relative;
- display: flex;
- background-color: aquamarine;
+// nav.navbar{
+//  position: relative;
+//  display: flex;
+//  background-color: aquamarine;
  
-// a.navbar-brand {
-//  // float: right;
+// // a.navbar-brand {
+// //  // float: right;
+// // }
 // }
-}
 
+.navbar-brand{
+    display: flex;
+    justify-content: space-around;
+    color: #8b7c7c;;
+    list-style: none;
+    padding: 8px 15px;
+    float: right;
+    
+}

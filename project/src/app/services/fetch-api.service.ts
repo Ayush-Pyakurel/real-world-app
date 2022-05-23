@@ -15,6 +15,7 @@ export class FetchApiService {
         'content-type': 'application/json',
       }),
     });
+
   }
 
   signIn(param: any) {
@@ -25,6 +26,13 @@ export class FetchApiService {
       }),
     });
   }
+  articel(){
+    let url = `${environment.url}/article/feed`;
+  }
+  // profile(){
+  //   let url = `${environment.url}/profiles/{username}`;
+  //   return this.http.get<any>(url,parameter,)
+  // }
 }
 interface IsignInresponse{
   user:{

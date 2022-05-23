@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
+import { NotificationService } from 'src/app/notification.service';
 import { FetchApiService } from 'src/app/services/fetch-api.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class SignInComponent implements OnInit {
   signInForm!: FormGroup;
   userLoginData!: any;
 
-  constructor(private postSignIn: FetchApiService, private router: Router) {}
+  constructor(private postSignIn: FetchApiService, private router: Router,private notification:NotificationService) {}
 
   ngOnInit(): void {
     this.signInForm = new FormGroup({
@@ -38,6 +39,7 @@ export class SignInComponent implements OnInit {
 
       console.log(res.user.token)
       localStorage.setItem ('token', res.user.token);
+      this.notification.showSuccess('login successful')
       this.router.navigate(['/user']);
     });
   }

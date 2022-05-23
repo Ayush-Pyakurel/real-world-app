@@ -13,6 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './header/sign-in/sign-in.component';
 import { GlobalFeedComponent } from './home/global-feed/global-feed.component';
 import { ProfileComponent } from './profile/profile.component';
+import {  ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ArticleComponent } from './article/article.component';
+
 
 @NgModule({
   declarations: [
@@ -25,12 +29,18 @@ import { ProfileComponent } from './profile/profile.component';
     SignInComponent,
     GlobalFeedComponent,
     ProfileComponent,
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

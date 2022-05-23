@@ -10,6 +10,12 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+  // getProfile(){
+  //   let parameter={
+  //     username:string;
+  //   }
+  // }
 
 }

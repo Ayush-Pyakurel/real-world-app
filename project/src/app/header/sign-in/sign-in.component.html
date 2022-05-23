@@ -1,8 +1,47 @@
-<a [routerLink]="['/signup']">Need an account?</a>
+<!-- <a [routerLink]="['/signup']">Need an account?</a>
 <form (ngSubmit)="onSubmit()" [formGroup]="signInForm">
   <label for="email">Email: </label>
   <input type="text" id="email" formControlName="email" />
   <label for="password">Password: </label>
   <input type="password" id="password" formControlName="password" />
   <button class="btn btn-submit">Submit</button>
-</form>
+</form> -->
+<div class="login-wrapper">
+<div class="card" >
+    <div class="card-body">
+  <div class="container">
+      <div class="row">
+          <h2>Login</h2>
+          <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  
+            
+              <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                      placeholder="Enter email" formControlName="email">
+                  <span class="text-danger" *ngIf="signInForm.get('email')?.invalid&&signInForm.get('email')?.touched">
+                      Please Enter a valid email address
+                  </span>
+              </div>
+              <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                      formControlName="password">
+                  <span class="text-danger"
+                      *ngIf="signInForm.get('password')?.invalid&&signInForm.get('password')?.touched">
+                     Invalid password</span>
+              </div>
+    
+              <button type="submit" class="btn btn-primary"(click)="onSubmit()"[disabled]="signInForm.invalid">Login</button>
+                <!-- <button type="submit" class="btn btn-primary"(click)="resetForm()">Reset</button> -->
+
+                <br>New User?
+                <a style="color: blue;" routerLink="/register">Register</a>
+          </form>
+  
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+
