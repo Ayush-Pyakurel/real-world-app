@@ -19,11 +19,15 @@ export class FetchApiService {
     private injector: Injector //private authService: AuthServiceService
   ) {}
 
+  // url: 'https://api.realworld.io/api',
+
+  urlBase: string = 'https://api.realworld.io/api';
+
   currentUser: any;
   authServiceInjector: any;
 
   signUp(param: any) {
-    let url = `${environment.url}/users `;
+    let url = `${this.urlBase}/users `;
     return this.http
       .post<User>(url, param, {
         headers: new HttpHeaders({
@@ -39,7 +43,7 @@ export class FetchApiService {
   }
 
   signIn(param: any) {
-    let url = `${environment.url}/users/login`;
+    let url = `${this.urlBase}/users/login`;
     return this.http.post<User>(url, param, {
       headers: new HttpHeaders({
         'content-type': 'application/json',
@@ -59,7 +63,7 @@ export class FetchApiService {
   }
 
   signInUser() {
-    let url = `${environment.url}/user`;
+    let url = `${this.urlBase}/user`;
     return this.http.get<User>(url, {
       headers: new HttpHeaders({
         'content-type': 'application/json',
@@ -74,7 +78,7 @@ export class FetchApiService {
   }
 
   updateSignedInUser(params: any) {
-    let url = `${environment.url}/user`;
+    let url = `${this.urlBase}/user`;
     return this.http.put<User>(url, params, {
       headers: new HttpHeaders({
         'content-type': 'application/json',
@@ -95,7 +99,7 @@ export class FetchApiService {
   }
 
   userProfile() {
-    let url = `${environment.url}/profile/${this.currentUser}`;
+    let url = `${this.urlBase}/profile/${this.currentUser}`;
     return this.http.get<Profile>(url, {
       headers: new HttpHeaders({
         'content-type': 'application/json',
@@ -110,7 +114,7 @@ export class FetchApiService {
   }
 
   getArticleFeed() {
-    let url = `${environment.url}/articles/feed`;
+    let url = `${this.urlBase}/articles/feed`;
     return this.http.get<Welcome>(url, {
       headers: new HttpHeaders({
         'content-type': 'application/json',
@@ -125,7 +129,7 @@ export class FetchApiService {
   }
 
   getArticles() {
-    let url = `${environment.url}/articles`;
+    let url = `${this.urlBase}/articles`;
     return this.http.get<Welcome>(url, {
       headers: new HttpHeaders({
         'content-type': 'applicaton/json',
@@ -140,7 +144,7 @@ export class FetchApiService {
   }
 
   postNewArticles(params: any) {
-    let url = `${environment.url}/articles`;
+    let url = `${this.urlBase}/articles`;
     return this.http.post<Welcome>(url, params, {
       headers: new HttpHeaders({
         'content-type': 'applicaton/json',
