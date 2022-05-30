@@ -1,11 +1,99 @@
-<h3>Sign Up</h3>
-<a [routerLink]="['/signin']">Already have an account.</a>
-<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-  <label for="username">Username: </label>
-  <input formControlName="username" type="text" id="username" />
-  <label for="email">Email: </label>
-  <input formControlName="email" type="text" id="email" />
-  <label for="password">Password: </label>
-  <input formControlName="password" type="password" id="password" />
-  <button class="btn btn-primary">Submit</button>
-</form>
+<div class="section-1-container section-container">
+  <div class="container">
+    <div class="row">
+      <h3 class="text-center">Sign Up</h3>
+      <a [routerLink]="['/signin']"
+        ><span class="color">Already have an account.</span></a
+      >
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username: </label>
+          <input
+            formControlName="username"
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="Username"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signUpForm.get('username').touched &&
+              signUpForm.get('username').invalid
+            "
+          >
+            User Name is required </span
+          ><br />
+          <label for="email">Email: </label>
+          <input
+            formControlName="email"
+            type="text"
+            id="email"
+            class="form-control"
+            placeholder="Email"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signUpForm.get('email').touched && signUpForm.get('email').invalid
+            "
+          >
+            Please enter the valid email </span
+          ><br />
+          <label for="password">Password: </label>
+          <input
+            formControlName="password"
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Password"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signUpForm.get('password').touched &&
+              signUpForm.get('password').invalid
+            "
+          >
+            <ul>
+              <li>Password must contain 8-16 characters</li>
+              <li>Atleast one character must be capital</li>
+              <li>Atleast one number</li>
+              <li>Atleast one special character</li>
+            </ul></span
+          ><br />
+          <label for="confirm-password">Confirm Password: </label>
+          <input
+            type="password"
+            id="confirm-password"
+            formControlName="confirmPassword"
+            class="form-control"
+            placeholder="Confirm Password"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signUpForm.get('confirmPassword').touched &&
+              signUpForm.get('confirmPassword').invalid
+            "
+          >
+            Both the password should match. </span
+          ><br />
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 bg-light text-right">
+              <button
+                type="submit"
+                class="btn btn-success btn-lg"
+                [disabled]="signUpForm.invalid"
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,47 +1,76 @@
-<nav class="navbar sticky-top navbar-light bg-light">
-  <a
-    class="navbar-brand my-2 my-sm-0"
-    [routerLink]="['/']"
-    routerLinkActive="active-link"
-    >Home</a
-  >
-  <a
-    class="navbar-brand my-2 my-sm-0"
-    [routerLink]="['/signup']"
-    routerLinkActive="active-link"
-    *ngIf="!isLogedInUser()"
-    >Sign Up</a
-  >
-  <a
-    class="navbar-brand my-2 my-sm-0"
-    [routerLink]="['/signin']"
-    routerLinkActive="active-link"
-    *ngIf="!isLogedInUser()"
-    >Sign In</a
-  >
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <ul class="nav navbar-nav">
+    <li>
+      <a class="navbar-brand conduit" [routerLink]="['/home']">Conduit</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right mr-3">
+    <li>
+      <a
+        class="navbar-brand my-2 my-sm-0"
+        [routerLink]="['/']"
+        routerLinkActive="active-link"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a
+        class="navbar-brand my-2 my-sm-0"
+        [routerLink]="['/setting']"
+        routerLinkActive="active-link"
+        *ngIf="isLogedInUser()"
+        >Settings</a
+      >
+    </li>
 
-  <a
-    class="navbar-brand my-2 my-sm-0"
-    [routerLink]="['/article']"
-    routerLinkActive="active-link"
-    *ngIf="isLogedInUser()"
-    >New Article</a
-  >
+    <li>
+      <a
+        class="navbar-brand my-2 my-sm-0"
+        [routerLink]="['/feed']"
+        routerLinkActive="active-link"
+        *ngIf="isLogedInUser()"
+        >New Article</a
+      >
+    </li>
+    <li>
+      <a
+        class="navbar-brand my-2 my-sm-0"
+        [routerLink]="['/signin']"
+        routerLinkActive="active-link"
+        *ngIf="!isLogedInUser()"
+        (click)="isLogedInUser()"
+        >Sign In</a
+      >
+    </li>
 
-  <a
-    class="navbar-brand my-2 my-sm-0"
-    [routerLink]="['/setting']"
-    routerLinkActive="active-link"
-    *ngIf="isLogedInUser()"
-    >Settings</a
-  >
+    <li>
+      <a
+        class="navbar-brand my-2 my-sm-0"
+        [routerLink]="['/signup']"
+        routerLinkActive="active-link"
+        *ngIf="!isLogedInUser()"
+        >Sign Up</a
+      >
+    </li>
 
-  <a
-    class="navbar-brand my-2 my-sm-0"
-    [routerLink]="['/signin']"
-    routerLinkActive="active-link"
-    *ngIf="isLogedInUser()"
-    (click)="userLogout()"
-    >Logout</a
-  >
+    <li>
+      <a
+        class="navbar-brand my-2 my-sm-0"
+        [routerLink]="['/user']"
+        routerLinkActive="active-link"
+        *ngIf="isLogedInUser()"
+        >{{ currentUser }}</a
+      >
+    </li>
+    <li>
+      <a
+        class="navbar-brand my-2 my-sm-0"
+        [routerLink]="['/']"
+        routerLinkActive="active-link"
+        *ngIf="isLogedInUser()"
+        (click)="userLogout()"
+        >Logout</a
+      >
+    </li>
+  </ul>
 </nav>

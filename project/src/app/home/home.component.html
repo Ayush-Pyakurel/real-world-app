@@ -1,2 +1,8 @@
-<p>home works!</p>
+<div class="mt-0 banner" *ngIf="!isLoggedInUser()">
+  <div style="text-align: center; color: white; padding-top: 20px">
+    <h1>Conduit</h1>
+    <h5>A place to share your knowledge</h5>
+  </div>
+</div>
+
 <app-article></app-article>

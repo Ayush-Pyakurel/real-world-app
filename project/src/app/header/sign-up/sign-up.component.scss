@@ -1,0 +1,32 @@
+.form-control{
+  height: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: normal;
+  font-size: medium;
+}
+span{
+ color: rgb(53, 199, 53);
+}
+
+.row{
+  position: relative;
+}
+
+.color {
+  position: absolute;
+  right: 43%;
+
+  color: rgb(53, 199, 53);
+
+}
+input.ng-invalid.ng-touched{
+  border: 2px solid red;
+}
+span.text-danger{
+  color: red;
+}
+
+.input.ng-valid.ng-touched{
+  border: 2px solid rgb(50, 175, 50);
+}
+

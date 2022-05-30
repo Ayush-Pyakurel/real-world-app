@@ -1,0 +1,49 @@
+<div class="section-1-container section-container">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">New Article</h2>
+      <form [formGroup]="newArticleForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Article Title"
+            formControlName="title"
+          /><br />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="What's this article about?"
+            formControlName="description"
+          /><br />
+          <textarea
+            type="text"
+            class="form-control"
+            placeholder="Write your article(in markdown)"
+            formControlName="body"
+          ></textarea
+          ><br />
+          <!-- <input
+            type="text"
+            class="form-control"
+            placeholder="Enter tags"
+            formControlName="  tagList"
+          /><br /> -->
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 bg-light text-right">
+              <button
+                type="button"
+                class="btn btn-success btn-lg"
+                [disabled]="newArticleForm.invalid"
+              >
+                Publish Article
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

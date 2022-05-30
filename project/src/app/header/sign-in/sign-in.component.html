@@ -1,8 +1,82 @@
-<a [routerLink]="['/signup']">Need an account?</a>
-<form (ngSubmit)="onSubmit()" [formGroup]="signInForm">
-  <label for="email">Email: </label>
-  <input type="text" id="email" formControlName="email" />
-  <label for="password">Password: </label>
-  <input type="password" id="password" formControlName="password" />
-  <button class="btn btn-submit">Submit</button>
-</form>
+<div class="section-1-container section-container">
+  <div class="container">
+    <div class="row">
+      <h3 class="text-center">Sign In</h3>
+      <a [routerLink]="['/signup']"
+        ><span class="color">Need an account?</span></a
+      >
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email: </label>
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="Email"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signInForm.get('email').touched && signInForm.get('email').invalid
+            "
+          >
+            Please enter the valid Email </span
+          ><br />
+          <label for="password">Password: </label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Password"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signInForm.get('password').touched &&
+              signInForm.get('password').invalid
+            "
+          >
+            <ul>
+              <li>Password must contain 8-16 characters</li>
+              <li>Atleast one character must be capital</li>
+              <li>Atleast one number</li>
+              <li>Atleast one special character</li>
+            </ul> </span
+          ><br />
+          <label for="confirm-password">Confirm Password: </label>
+          <input
+            type="password"
+            id="confirm-password"
+            formControlName="confirmPassword"
+            class="form-control"
+            placeholder="Confirm Password"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              signInForm.get('confirmPassword').touched &&
+              signInForm.get('confirmPassword').invalid
+            "
+          >
+            Both the password should match. </span
+          ><br />
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 bg-light text-right">
+              <button
+                type="submit"
+                class="btn btn-success btn-lg"
+                [disabled]="signInForm.invalid"
+              >
+                Sign In
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

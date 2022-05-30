@@ -1,1 +1,74 @@
-<p>setting works!</p>
+<div class="section-1-container section-container">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">Your Settings</h2>
+      <form [formGroup]="settingForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Url of profile picture"
+            formControlName="url"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            formControlName="username"
+          />
+          <textarea
+            class="form-control textarea-height"
+            formControlName="bio"
+            placeholder="Short bio about you"
+          ></textarea>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              settingForm.get('email').touched &&
+              settingForm.get('email').invalid
+            "
+          >
+            Please enter the valid password </span
+          ><br />
+          <input
+            type="password"
+            class="form-control"
+            placeholder="New Password"
+            formControlName="password"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              settingForm.get('password').touched &&
+              settingForm.get('password').invalid
+            "
+          >
+            Please enter the valid password </span
+          ><br />
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 bg-light text-right">
+              <button
+                type="submit"
+                class="btn btn-success btn-lg"
+                [disabled]="settingForm.invalid"
+              >
+                Update Settings
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- <button type="button" class="btn btn-success btn-lg">
+        Update Settings
+      </button> -->
+    </div>
+  </div>
+</div>

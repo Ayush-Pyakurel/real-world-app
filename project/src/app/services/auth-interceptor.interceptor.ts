@@ -9,20 +9,37 @@ import { AuthServiceService } from './auth-service.service';
 @Injectable()
 export class AuthInterceptorInterceptor implements HttpInterceptor {
   authService: any;
-  authToken: any;
+
+  token: any;
 
   constructor(
     private injector: Injector //private authServices: AuthServiceService
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): any {
+    let authToken = request;
     this.authService = this.injector.get(AuthServiceService);
-    this.authToken = request.clone({
-      setHeaders: {
-        authorization: `Bearer ${this.authService.getToken()}`,
-      },
-    });
 
-    return next.handle(this.authToken);
+    const headerConfig = {
+      'content-type': 'application/json',
+    };
+    this.token = this.authService.getToken();
+
+    if (this.token) {
+      headerConfig['authorization'] = `Bearer ${this.token}`;
+    }
+
+    authToken = request.clone({
+      setHeaders: headerConfig,
+    });
+    return next.handle(authToken);
   }
+
+  // this.authService = this.injector.get(AuthServiceService);
+  // this.token = request.clone({
+  //   setHeaders: {
+  //     Authorization: `Bearer ${this.authService.getToken()}`,
+  //   },
+  // });
+  // return next.handle(this.token);
 }

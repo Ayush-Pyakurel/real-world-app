@@ -1,11 +1,35 @@
 <!-- {{ articlesData | json }} -->
 
-<p *ngFor="let article of articlesData">
-  {{ article.title }}<br />
-  {{ article.description }}<br />
-  {{ article.slug }}<br />
-  {{ article.createdAt }}<br />
-  {{ article.updatedAt }}<br />
-  {{ article.favoritesCount }}<br />
-  {{ article.author.username }}
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="flex">
+        <a [routerLink]="['/feed']"><h4>Global Feed</h4></a>
+        <a [routerLink]="['/']" routerLinkActive="active-link"
+          ><h4>Your Feed</h4></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <p *ngIf="!isLoading"><app-loading-spiner></app-loading-spiner> Loading...</p>
+  <div *ngFor="let article of articlesData">
+    <ul class="list-group">
+      <hr />
+
+      <li class="list-group-item">
+        <a class="username" [routerLink]="['/profile']"
+          ><h2>{{ article.author.username }}</h2>
+        </a>
+        <div class="created-at">{{ article.createdAt | date }}</div>
+        <div class="title">{{ article.title }}</div>
+        <div class="slug">{{ article.slug }}</div>
+        <div class="description">{{ article.description }}</div>
+
+        <div class="updated-at">{{ article.updatedAt | date }}</div>
+        <div class="favourite-count">{{ article.favoritesCount }}</div>
+      </li>
+    </ul>
+  </div>
+</div>

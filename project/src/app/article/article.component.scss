@@ -1,0 +1,36 @@
+.flex{
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+
+a{
+  color: rgb(58, 162, 58);
+}
+.username {
+position: relative;
+font-size: larger;
+color: rgb(55, 191, 55);
+  }
+.created-at {
+position: absolute;
+margin-bottom: 10px;
+font-size: small;
+opacity: 0.5;
+      }
+.title {
+margin-top: 25px;
+font-family: 'Times New Roman', Times, serif;
+font-size: larger;
+font-weight: bolder;
+color: black;
+position: relative;
+              }
+
+              
+.favourite-count {}
+
+
+
+
+

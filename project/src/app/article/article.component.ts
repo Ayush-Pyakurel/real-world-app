@@ -11,27 +11,21 @@ import { FetchApiService } from '../services/fetch-api.service';
 export class ArticleComponent implements OnInit {
   articleFeeds: any;
   articlesData: any;
+  isLoading: boolean = false;
   constructor(
     private authService: AuthServiceService,
-    private fetService: FetchApiService
+    private fetchService: FetchApiService
   ) {}
 
   ngOnInit(): void {
     this.showArticles();
-    this.showArticleFeed();
-  }
-
-  showArticleFeed() {
-    this.fetService.getArticleFeed().subscribe((response) => {
-      //this.articleFeeds = response.articles[1];
-      //console.log(this.articleFeeds);
-    });
   }
 
   showArticles() {
-    this.fetService.getArticles().subscribe((response) => {
+    this.fetchService.getArticles().subscribe((response) => {
       this.articlesData = response.articles;
-      console.log(this.articlesData);
+      //console.log(this.articlesData);
+      this.isLoading = true;
     });
   }
 }

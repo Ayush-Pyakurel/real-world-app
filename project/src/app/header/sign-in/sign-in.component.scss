@@ -1,0 +1,26 @@
+.form-control {
+ height: 40px;
+ font-family: 'Times New Roman', Times, serif;
+ font-style: normal;
+ font-size: medium;
+}
+.row{
+ position: relative;
+ 
+}
+ .color{
+  position: absolute;
+  right:45%;
+  
+  color: rgb(53, 199, 53);
+  
+}
+input.ng-touched.ng-invalid{
+  border: 2px solid red;
+}
+
+// .buttom-right{
+//   position: absolute;
+//   top: 65%;
+//   left: 50%;
+// }
