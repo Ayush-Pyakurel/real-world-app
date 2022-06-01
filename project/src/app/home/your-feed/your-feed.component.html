@@ -1,1 +1,12 @@
-<p>your-feed works!</p>
+<div *ngFor="let feed of myFeed">
+    <img style="height:40px;width:40px;  background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;" [src]="feed.author.image">
+     <a>{{feed.author.username}}</a>
+     <p>{{feed.createdAt|date}}</p>
+     <!-- <h1>{{feed.slug}}</h1> -->
+     <p>{{feed.title}}</p>
+     <p>{{feed.description}}</p>
+     
+     <hr>
+</div>

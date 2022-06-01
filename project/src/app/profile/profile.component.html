@@ -1,1 +1,37 @@
-<p>profile works!</p>
+<div class="banner">
+    <div style="text-align:center;color:white;padding-top:20px;">
+        <div class="img">
+            <img [src]=" 'https://static.productionready.io/images/smiley-cyrus.jpg'" alt="user image"
+                class="user-img" style="height:100px;width:100px;background-repeat: no-repeat;
+                background-position: 50%;
+                border-radius: 50%;"/>
+        </div>
+        <h3 style="color: black;">{{userData}}</h3>
+        <div class="btn">
+            <button routerLink="/setting">Edit profile setting</button>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+<div class="container">
+    <a style="color: green;cursor: pointer;  font-size: 30px;"  routerLinkActive="active-link"(click)="onClick()"> My Post</a>
+    <hr>
+    <ng-container *ngIf="visible">
+
+    <div *ngFor="let feed of myFeed">
+       <img style="height:40px;width:40px;  background-repeat: no-repeat;
+       background-position: 50%;
+       border-radius: 50%;" [src]="feed.author.image">
+        <a>{{feed.author.username}}</a>
+        <p>{{feed.createdAt|date}}</p>
+        <!-- <h1>{{feed.slug}}</h1> -->
+        <p>{{feed.title}}</p>
+        <p>{{feed.description}}</p>
+        
+        <hr>
+</div>
+    </ng-container>
+</div>
+    

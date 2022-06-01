@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
+import { ErrorInterceptor } from 'src/app/error.interceptor';
 import { NotificationService } from 'src/app/notification.service';
 import { FetchApiService } from 'src/app/services/fetch-api.service';
 
@@ -14,7 +15,7 @@ export class SignInComponent implements OnInit {
   signInForm!: FormGroup;
   userLoginData!: any;
 
-  constructor(private postSignIn: FetchApiService, private router: Router,private notification:NotificationService) {}
+  constructor(private postSignIn: FetchApiService, private router: Router, private notification: NotificationService) { }
 
   ngOnInit(): void {
     this.signInForm = new FormGroup({
@@ -24,10 +25,11 @@ export class SignInComponent implements OnInit {
         Validators.minLength(4),
       ]),
     });
+    this.logout();
   }
 
   onSubmit() {
-    console.log(this.signInForm.value);
+    //console.log(this.signInForm.value);
     let param = {
       user: {
         email: this.signInForm.get('email')?.value,
@@ -35,12 +37,23 @@ export class SignInComponent implements OnInit {
       },
     };
     // this.postSignIn.signIn(param).pipe(tap(vare=>console.log(vare))).subscribe((res) => {
-      this.postSignIn.signIn(param).subscribe((res) => {
-
-      console.log(res.user.token)
-      localStorage.setItem ('token', res.user.token);
+    this.postSignIn.signIn(param).subscribe((res) => {
+      console.log('username', res.user.username)
+      localStorage.setItem('token', res.user.token);
       this.notification.showSuccess('login successful')
-      this.router.navigate(['/user']);
-    });
+      this.router.navigate(['/home']);
+    },
+    (error)=>{
+      this.notification.showError('invalid email or password')
+    }
+    
+    );
   }
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/signin'])
+
+
+  }
+
 }

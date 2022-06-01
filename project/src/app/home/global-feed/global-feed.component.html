@@ -1,1 +1,16 @@
-<p>global-feed works!</p>
+
+
+
+  <div *ngFor="let article of articleData">
+    <div>
+        <a>{{article.author.username}}</a><br>
+        <span>{{article.createdAt|date:'longDate'}}</span>
+    </div>
+    <!-- {{article.slug}}<br> -->
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.description }}</p>
+    <p>{{article.body}}</p>
+    <!-- {{article.taglist}}<br> -->
+    {{article.updatedAt|date :'longDate'}}<hr>
+
+</div>

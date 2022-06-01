@@ -19,7 +19,7 @@
   >
 </nav> -->
 
-<header >
+<nav >
   <div class="navbar shadow-sm">
     <strong style="font-size:40px;color: #5CB85C;padding-left: 90px;">conduit</strong>
 
@@ -34,11 +34,21 @@
       routerLinkActive="active-link"
       >Home</a
     ></li>
+    
+    <li>
+      <a
+      class="navbar-brand my-2 my-sm-0 align-item-center "
+      [routerLink]="['/article']"
+      routerLinkActive="active-link"
+      *ngIf="loggedInUser()"
+      >New Article</a
+    ></li>
     <li>
     <a
       class="navbar-brand my-2 my-sm-0"
       [routerLink]="['/signup']"
       routerLinkActive="active-link"
+      *ngIf="!loggedInUser()"
       >Sign Up</a
     ></li>
     <li>
@@ -46,9 +56,45 @@
       class="navbar-brand my-2 my-sm-0"
       [routerLink]="['/signin']"
       routerLinkActive="active-link"
+      *ngIf="!loggedInUser()"
       >Sign In</a
     ></li>
+   
+    <a
+      class="navbar-brand my-2 my-sm-0"
+      [routerLink]="['/setting']"
+      routerLinkActive="active-link"
+      *ngIf="loggedInUser()"
+      >Setting</a
+    >
+
+    <a
+      class="navbar-brand my-2 my-sm-0"
+      [routerLink]="['/profile/',currentUser]"
+      routerLinkActive="active-link"
+      *ngIf="loggedInUser()"
+      > 
+        {{currentUser}}</a
+    >
+ 
+  
+  
+    
+    <a
+      class="navbar-brand my-2 my-sm-0"
+      [routerLink]="['/signin']"
+      routerLinkActive="active-link"
+      *ngIf="loggedInUser()"
+      >Logout</a
+    >
+
+    
+
+    
     </div>
   </div>
+  
+  
  
-</header>
+</nav>
+

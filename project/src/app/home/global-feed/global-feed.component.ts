@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FetchApiService } from 'src/app/services/fetch-api.service';
 
 @Component({
   selector: 'app-global-feed',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./global-feed.component.scss']
 })
 export class GlobalFeedComponent implements OnInit {
-
-  constructor() { }
+  article:any;
+  articleData: any;
+  constructor(private service:FetchApiService) { }
 
   ngOnInit(): void {
+    this.showArticle();
+    this.showArticalGlobally()
+  }
+  showArticle(){
+    this.service.article().subscribe((res)=>{
+      this.articleData=res.articles;
+
+      console.log(this.articleData)
+    })
+  }
+  showArticalGlobally(){
+    this.service.getRecentArticle().subscribe((res)=>{
+
+    })
   }
 
 }

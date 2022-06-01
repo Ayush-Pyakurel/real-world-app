@@ -2,5 +2,107 @@
   <div style="text-align:center;color:white;padding-top:20px;">
     <h1>Conduit</h1>
     <h5>Sign up for free today</h5>
-  </div>  
+    
+  </div>
 </div>
+<br><br>
+<ng-container *ngIf="true">
+
+  <div class="tags">
+    <p>Popular tags</p>
+    <ul class="tag-list">
+      <li class="tagList" *ngFor="let tag of tags">
+        
+        <a>{{ tag}}</a>
+      </li>
+      
+    </ul>
+  
+   
+  </div>
+</ng-container>
+
+
+
+
+<div class="feed">
+  <div class="container">
+  <!-- <a style="color: green;cursor: pointer;"  routerLinkActive="active-link"(click)="onClick()"> {{showFeed?"global feed":"your feed"}}</a> -->
+  <a style="color: green;cursor: pointer;"  routerLinkActive="active-link"(click)="onClick()"> global feed</a>
+  <a style="color: green;cursor: pointer;"  routerLinkActive="active-link"(click)="onClick()"> Your feed</a>
+</div>
+  <hr>  
+  <ng-container *ngIf="visible">
+    <app-article></app-article>
+  </ng-container>
+  <ng-container *ngIf="!visible">
+    <div *ngFor="let feed of myFeed">
+      <img style="height:40px;width:40px;  background-repeat: no-repeat;
+      background-position: 50%;
+      border-radius: 50%;" [src]="feed.author.image">
+       <a>{{feed.author.username}}</a>
+       <p>{{feed.createdAt|date}}</p>
+       <!-- <h1>{{feed.slug}}</h1> -->
+       <p><b>{{feed.title}}</b></p>
+       <p>{{feed.description}}</p>
+       <p>{{feed.body}}</p>
+       
+       <hr>
+</div>
+  </ng-container>
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="feed">
+  <a style="color: green;cursor: pointer;"
+  > global feed</a>
+  <a style="color: green;cursor: pointer;"> Your feed</a>
+  <ng-container *ngIf="true">
+    <app-article></app-article>
+  </ng-container>
+  <ng-container *ngIf="false">
+    <app-your-feed></app-your-feed>
+  </ng-container>
+   -->
+ 
+  <!-- <a style="color: green;cursor: pointer;" (click)="tagInfo()"> #information</a>
+  <hr>
+  <a href="#" routerLink="/article" (click)="showInfo()"></a> -->
+<!-- </div>
+
+<hr>
+
+
+<ng-container *ngIf="true">
+
+  <div class="tags">
+    <p>Popular tags</p>
+    <ul class="tag-list">
+      <li class="tagList" *ngFor="let tag of tags">
+        <a routerLink="/article">{{ tag}}</a>
+      </li>
+    </ul>
+  
+  </div>
+</ng-container>
+
+<ng-container *ngIf="false">
+  hello
+</ng-container> -->
+
+
+{{userData|json}}

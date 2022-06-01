@@ -1,18 +1,21 @@
-<p>article works!</p>
-<form>
-    <fieldset>  
-        <input type="text" class="form-control"ng-required=1 ng-model="name" placeholder="name">
-    </fieldset>
-    <fieldset>
-        <input type="text" class="form-control"ng-required=1 ng-model="foobar" placeholder="email">
-    </fieldset>
-    <fieldset>
-        <textarea class="form-control"></textarea>
-    </fieldset>
-    <fieldset>  
-        <input type="text" class="form-control"ng-required=1 ng-model="name" placeholder="name">
-    </fieldset>
+<div class="container">
+<p *ngIf="!isloading">
+    <app-loading-spinner></app-loading-spinner>
+</p>
+</div>
+<div class="container">
 
-    
-</form>
-<button class="btn btn-primary">Publish Article</button>
+<div *ngFor="let article of articleData">
+    <div class="user">
+        <a routerLink="/profile">{{article.author.username}}</a><br>
+        <span>{{article.createdAt|date:'longDate'}}</span>
+    </div>
+    <!-- {{article.slug}}<br> -->
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.description }}</p>
+    <p>{{article.body}}</p>
+    <!-- {{article.taglist}}<br> -->
+    {{article.updatedAt|date :'longDate'}}<hr>
+
+</div>
+</div>

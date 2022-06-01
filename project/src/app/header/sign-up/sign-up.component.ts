@@ -16,8 +16,8 @@ import { FetchApiService } from 'src/app/services/fetch-api.service';
 })
 export class SignUpComponent implements OnInit {
   signUpForm!: FormGroup;
-  hide=true;
-  constructor(private postApi: FetchApiService, private router: Router,private notification:NotificationService) {}
+  hide = true;
+  constructor(private postApi: FetchApiService, private router: Router, private notification: NotificationService) { }
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
@@ -27,11 +27,11 @@ export class SignUpComponent implements OnInit {
         Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]*$")
       ]),
     });
-    
+
   }
 
   onSubmit() {
-    console.log(this.signUpForm.value);
+   
     let param = {
       user: {
         username: this.signUpForm.get('username')?.value,
@@ -41,8 +41,13 @@ export class SignUpComponent implements OnInit {
     };
     this.postApi.signUp(param).subscribe((res) => {
       // alert(`Hello ${this.signUpForm.get('username')?.value}`);
+
       this.notification.showSuccess('signUp successful!')
       this.router.navigate(['/signin']);
+
+    },
+    (error)=>{
+      this.notification.showError('signUp failed');
     });
     // this.signUpForm.get('username')?.value;
   }

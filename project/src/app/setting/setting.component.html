@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="container">
+            <div class="row">
+                    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+
+                            <input  class="form-control" placeholder="Image" formControlName="image">
+
+
+                            <input type="text" class="form-control" placeholder="username"formControlName="userName">
+                            <span class="text-danger"
+                            *ngIf="updateForm.get('userName')?.invalid&&updateForm.get('userName')?.touched">
+                            Please Enter a valid username
+                        </span>
+
+                            <textarea type="text" class="form-control" placeholder="Bio"formControlName="bio"></textarea>
+
+                            <input type="email" class="form-control" placeholder="Email" formControlName="email">
+                            <span class="text-danger"
+                            *ngIf="updateForm.get('email')?.invalid&&updateForm.get('email')?.touched">
+                            Please Enter a valid email address
+                        </span>
+                            <input type="password" class="form-control" placeholder="New Password" formControlName="password"autocomplete="on">
+                            <span class="text-danger"
+                        *ngIf="updateForm.get('password')?.invalid&&updateForm.get('password')?.touched">
+                        <ul>
+                            <li> The password should be a minimum of eight characters long.</li>
+                            <li>It has at least one lower case letter.</li>
+                            <li> It has at least one upper case letter.</li>
+                            <li> It has at least one number.</li>
+                            <li>It has at least one special character</li>
+                        </ul>
+                    </span>
+                            <button button="submit"class="btn btn-primary" [disabled]="updateForm.invalid">Update Setting</button>
+
+                    </form>
+            </div>
+    </div>
+</div>
+<hr>
+<button style="margin-left:250px;" routerLink="/signin">or click here to logout</button>

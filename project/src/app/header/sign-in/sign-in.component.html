@@ -32,11 +32,11 @@
                      Invalid password</span>
               </div>
     
-              <button type="submit" class="btn btn-primary"(click)="onSubmit()"[disabled]="signInForm.invalid">Login</button>
+              <button type="submit" class="btn btn-primary"[disabled]="signInForm.invalid">Login</button>
                 <!-- <button type="submit" class="btn btn-primary"(click)="resetForm()">Reset</button> -->
 
                 <br>New User?
-                <a style="color: blue;" routerLink="/register">Register</a>
+                <a style="color: blue;" routerLink="/signup">Register</a>
           </form>
   
         </div>
